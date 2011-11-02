@@ -1,0 +1,3 @@
+var $form = $("#day_todo_box_<%= @todo.scheduled_day.to_date %>").find("form");
+$form.get(0).reset();
+$form.before("<%= escape_javascript(render @todo) %>");

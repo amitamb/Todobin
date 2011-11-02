@@ -1,0 +1,50 @@
+<div id="timeline" style="">
+	<div class="relative">
+		<% todo_lists = Todo.where(:scheduled_day => (DateTime.now.beginning_of_week.to_date..(DateTime.now.end_of_week+1.day).to_date)).group_by { |todo| todo.scheduled_day.beginning_of_day } %>
+		<% 
+			todo_list_hash = {}
+			(DateTime.now.beginning_of_week.to_date..DateTime.now.end_of_week.to_date).each do |day|
+				if todo_lists[day.beginning_of_day]
+					todo_list_hash[day.beginning_of_day] = todo_lists[day.beginning_of_day]
+				else
+					todo_list_hash[day.beginning_of_day] = []
+				end
+			end
+		%>
+		
+
+		<% index = 0 %>
+		<% todo_list_hash.each do |day, todos| %>
+			<%= render "day_todo_box", :day => day, :todos => todos, :index => index %>
+			<% index += 1 %>
+		<% end if !todo_list_hash.empty? %>
+		
+	</div>
+</div>
+
+<!--
+<h1>Listing todos</h1>
+
+<table>
+  <tr>
+    <th>Text</th>
+    <th>Status</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @todos.each do |todo| %>
+  <tr>
+    <td><%= todo.text %></td>
+    <td><%= link_to 'Show', todo %></td>
+    <td><%= link_to 'Edit', edit_todo_path(todo) %></td>
+    <td><%= link_to 'Destroy', todo, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Todo', new_todo_path %>
+-->

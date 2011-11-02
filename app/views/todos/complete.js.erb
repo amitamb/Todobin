@@ -1,0 +1,6 @@
+//$("#todo_<%= @todo.id %>").find("input").attr('checked', true);
+
+setTimeout(function(){
+	$("#todo_<%= @todo.id %>").replaceWith($("<%= escape_javascript(render(@todo)) %>"));
+	//style({ "text-decoration" : "line-through" });
+}, 400);

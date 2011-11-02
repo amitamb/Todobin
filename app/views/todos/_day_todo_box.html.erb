@@ -1,0 +1,22 @@
+<div id="day_todo_box_<%= day.to_date %>" class="todo_list <%= ( index % 2 == 0 ? "even" : "odd" ) %>" style="left:<%= index * 14 + (index == 0 ? 2 : 0) %>%;" >
+	<div class="date_stamp" style="<%= "color:#a33;" if day == Date.today %>"><%= day.strftime("%a<br />%d %b").html_safe %></div>
+	<!-- I am sleepy that's why such a bad code -->
+	<!-- Putting it below i.e. after relative works in chrome but not in FF -->
+	<% if index % 2 == 1 %>
+		<div class="vert_bar"></div>
+	<% end %>
+	<div class="relative">
+		<% if index % 2 == 0 %>
+			<div class="vert_bar"></div>
+		<% end %>
+		<div class="todos_box">
+			<ul>
+				<% todos.each do |todo| %>
+					<%= render "todo", :todo => todo %>
+				<% end if !:todos.empty? %>
+			<ul>
+			<% @todo = Todo.new( :scheduled_day => day ) %>
+			<%= render 'form' %>
+		</div>
+	</div>
+</div>
