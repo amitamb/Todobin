@@ -4,7 +4,7 @@
   <title>TodoTimeline</title>
   <%= stylesheet_link_tag    "application" %>
   <%= javascript_include_tag "application" %>
-  <%= javascript_include_tag params[:controller]+"_"+params[:action]+".js" %>
+  <%= javascript_include_tag params[:controller]+"."+params[:action]+".js" %>
   <%= csrf_meta_tags %>
 </head>
 <body>

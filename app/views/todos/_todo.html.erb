@@ -1,5 +1,5 @@
 <li id="todo_<%= todo.id %>" class="todo">
-	<span class="todo_text" style="<%=   todo.complete ? "color:#565;text-decoration: line-through;" : "color:#211;font-size:100%;" %>">
+	<span class="todo_text" style="<%=   todo.complete ? "color:#565;text-decoration: line-through;font-size:105%;" : "color:#211;font-size:105%;" %>">
 	<%= todo[:text] %></span>
 	<% unless todo.complete %>
 		<%= link_to "<input type='checkbox' style='width:10px;height:10px;' />".html_safe, "#", complete_path: complete_todo_path(todo), class: "complete", style: "padding:0;margin:0;float:right;", onclick: '' %>
