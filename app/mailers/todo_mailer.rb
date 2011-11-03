@@ -6,6 +6,8 @@ class TodoMailer < ActionMailer::Base
 		@todos = user.todos #todays_
 		#@yesterdays_todos = user.yesterdays_todos
 		#@past_todos = user.past_todos
-    mail(:to => "#{ 'amit ambardekar' } <#{ 'amitamb@gmail.com' }>", :subject => "Daily todo list")
+		puts "Sending email to " + user.email
+		
+    mail(:to => "#{ user.email } <#{ user.email }>", :subject => "Daily todo list")
   end
 end

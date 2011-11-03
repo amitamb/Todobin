@@ -8,4 +8,10 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me
   
   has_many :todos
+  
+  def self.send_daily_todo_emails
+		User.all.each do |user|
+			TodoMailer.daily_todo_email(user).deliver
+		end
+  end
 end

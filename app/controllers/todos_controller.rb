@@ -44,8 +44,6 @@ class TodosController < ApplicationController
   # POST /todos.json
   def create
     @todo = current_user.todos.build(params[:todo])
-    
-    TodoMailer.daily_todo_email(current_user).deliver
 
     respond_to do |format|
       if @todo.save
