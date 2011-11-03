@@ -1,3 +1,5 @@
+<%= javascript_include_tag params[:controller]+"."+params[:action]+".js" %>
+
 <div id="timeline" style="">
 	<div class="relative">
 		<% todo_lists = Todo.where(:scheduled_day => (DateTime.now.beginning_of_week.to_date..(DateTime.now.end_of_week+1.day).to_date)).group_by { |todo| todo.scheduled_day.beginning_of_day } %>
