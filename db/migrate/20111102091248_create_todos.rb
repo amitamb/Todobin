@@ -5,6 +5,7 @@ class CreateTodos < ActiveRecord::Migration
       t.boolean :complete, :default => false
       t.integer :hours
       t.datetime :scheduled_day
+      t.references :user
 
       t.timestamps
     end

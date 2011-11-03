@@ -1,1 +1,7 @@
-This is daily todo email.
+Today you need to do
+
+<ul>
+	<% @todos.each do |todo| %>
+		<li><%= todo.text %></li>
+	<% end %>
+</ul>
