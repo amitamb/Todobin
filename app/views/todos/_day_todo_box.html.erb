@@ -14,10 +14,11 @@
 				<% todos.each do |todo| %>
 					<%= render "todo", :todo => todo %>
 				<% end if !:todos.empty? %>
-				<% @todo = Todo.new( :scheduled_day => day ) %>
 				<% (todos.length..4).each do |n| %>
+					<% @todo = Todo.new( :scheduled_day => day ) %>
 					<%= render 'form' %>
 				<% end %>
+				<% @todo = Todo.new( :scheduled_day => day ) %>
 				<%= render 'form' %>
 			</ul>
 		</div>
