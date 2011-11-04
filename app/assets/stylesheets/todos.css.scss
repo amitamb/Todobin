@@ -59,14 +59,22 @@ body {
 #timeline .todo_list form {
 	padding:0;
 	margin:0;
-	padding-top:3px;
-	padding-bottom:3px;
+	border:0;
 }
 
 #timeline form #todo_text {
 	width:180px;
 	border:0;
+	margin:0;
+	padding:0;
 	border-bottom:1px solid #ddd;
+	padding-top:6px;
+	padding-bottom:1px;
+	height:18px;
+	outline:none;
+	outline-offset:0;
+	font-size:15px;
+	text-align:left;
 }
 
 #todo_hours {
@@ -80,14 +88,39 @@ body {
 	margin:0;
 }
 
-#timeline .todos_box li.todo {
+#timeline .todos_box ul li {
+	
+}
+
+#timeline .todos_box ul li.todo {
 	width:180px;
-	padding-top:3px;
+	padding:0;
+	margin:0;
+	border:0;
+	padding-top:4px;
 	padding-bottom:3px;
+	border-bottom:1px solid #fafafa;
+	height:18px;
+	font-size:15px;
+}
+
+@-moz-document url-prefix() {
+	#timeline .todos_box ul li.todo {
+		padding-top:6px;
+		padding-bottom:1px;
+	}
 }
 
 #timeline .todos_box .todo .todo_text {
-	
+	width:165px; /* width:182px; */
+	display:inline-block;
+	white-space:nowrap;
+	overflow:hidden;
+	text-overflow:ellipsis;
+	padding:0;
+	margin:0;
+	border:0;
+	padding-left:1px;
 }
 
 #timeline .todos_box .todo a:hover {
@@ -96,7 +129,7 @@ body {
 }
 
 #timeline .todos_box .todo a {
-	opacity:0.3;
+	opacity:0.7;
 }
 #timeline .todos_box .todo a:hover {
 	opacity:1;

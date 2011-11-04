@@ -25,12 +25,24 @@ $(function(){
 		$("#timeline").css({ width : $(document).width() + "px"});
 	});
 	
-	$(".new_todo").submit(function(event){
+	$("form.new_todo").submit(function(event){
+		if ( $(this).attr("submitted") == "true" ){
+			// submit only once
+			return false;
+		}
 		if ( $(this).find("#todo_text").val() == false ){
 			return false;
 		}
+		$(this).attr("submitted", "true");
 	});
 	
+	$("form.new_todo #todo_text").live("focusout", function(){
+		var $form = $(this).parents("form");
+		if ( $(this).val() && $form.attr("submitted") != "true" ){
+			$form.first().submit();
+		}
+	});
+
 	$(".todo .complete").live("click", function(){
 		$(this).find("input").attr("checked", true);
 		$.ajax({

@@ -1,5 +1,6 @@
-//$("#todo_<%= @todo.id %>").find("input").attr('checked', true);
+<% @temp_todo = @todo %>
+<% @todo = Todo.new( :scheduled_day => @todo.scheduled_day ) %>
+var $new_form = $("<%= escape_javascript( render( "form" ) ) %>");
+$("#todo_<%= @temp_todo.id %>").replaceWith($new_form);
+<% @todo = @temp_todo %>
 
-setTimeout(function(){
-	$("#todo_<%= @todo.id %>").remove();
-}, 400);

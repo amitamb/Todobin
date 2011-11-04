@@ -3,12 +3,9 @@
 <head>
   <title>TodoTimeline</title>
   <%= stylesheet_link_tag    "application" %>
+  <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.9.0/build/reset/reset-min.css">
+  <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.9.0/build/base/base-min.css">
   <%= javascript_include_tag "application" %>
-  <% if user_signed_in? && current_user.timezone_offset.nil? %>
-		<script>
-			alert("User's timezone");
-		</script>
-  <% end %>
   <%= csrf_meta_tags %>
 </head>
 <body>
@@ -22,6 +19,9 @@
     <%= link_to "Sign up", new_user_registration_path %> or  
     <%= link_to "Sign in", new_user_session_path %>  
   <% end %>  
+  
+  Time at server : <%= Date.today %>
+  
 </div>  
 <%= yield %>
 

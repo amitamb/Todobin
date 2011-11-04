@@ -1,3 +1,16 @@
-var $form = $("#day_todo_box_<%= @todo.scheduled_day.to_date %>").find("form");
-$form.get(0).reset();
-$form.before("<%= escape_javascript(render @todo) %>");
+var $form = $("#new_todo_<%= @todo.form_uid %>");
+var list_parent = $form.parents("ul");
+if ( list_parent.find("form").length <= 1 ){
+	<% @temp_todo = @todo %>
+	<% @todo = Todo.new( :scheduled_day => @todo.scheduled_day ) %>
+	var $new_form = $("<%= escape_javascript( render( "form" ) ) %>");
+	list_parent.find("li").last().after($new_form);
+	$new_form.find("input#todo_text").focus();
+	<% @todo = @temp_todo %>
+}
+
+$next_form = $form.parents("li").next().find("#todo_text");
+setTimeout(function(){
+	$next_form.focus();
+}, 0);
+$form.parents("li").first().replaceWith("<%= escape_javascript(render @todo) %>");
