@@ -1,5 +1,5 @@
-<div id="day_todo_box_<%= day.to_date %>" class="todo_list <%= ( index % 2 == 0 ? "even" : "odd" ) %>" style="left:<%= index * 14 + (index == 0 ? 2 : 0) %>%;" >
-	<div class="date_stamp" style="<%= "color:#a33;" if day == user_date %>"><%= day.strftime("%a<br />%d %b").html_safe %></div>
+<div id="day_todo_box_<%= day.to_date %>" class="todo_list <%= ( index % 2 == 0 ? "even" : "odd" ) %>" style="left:<%= index * 20 + (index == 0 ? 2 : 0) %>%;" >
+	<div class="date_stamp" style="<%= "color:#a33;" if day == user_date %>"><%= "Today<br />".html_safe if day == user_date %><%= day.strftime("%a<br />%d %b").html_safe %></div>
 	<!-- I am sleepy that's why such a bad code -->
 	<!-- Putting it below i.e. after relative works in chrome but not in FF -->
 	<% if index % 2 == 1 %>

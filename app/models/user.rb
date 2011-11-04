@@ -14,4 +14,14 @@ class User < ActiveRecord::Base
 			TodoMailer.daily_todo_email(user).deliver
 		end
   end
+  
+  def local_time
+		offset_seconds = ( timezone_offset || 0 ) * -1 * 60
+		Time.now.utc.localtime(offset_seconds)
+  end
+  
+  def local_date
+		local_time.to_date
+  end
+  
 end
