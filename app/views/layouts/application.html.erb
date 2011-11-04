@@ -4,6 +4,11 @@
   <title>TodoTimeline</title>
   <%= stylesheet_link_tag    "application" %>
   <%= javascript_include_tag "application" %>
+  <% if user_signed_in? && current_user.timezone_offset.nil? %>
+		<script>
+			alert("User's timezone");
+		</script>
+  <% end %>
   <%= csrf_meta_tags %>
 </head>
 <body>
