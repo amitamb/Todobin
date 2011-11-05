@@ -1,7 +1,24 @@
+<% unless @todays_todos_inprogress.empty? %>
+<p>
 Today you need to do
-
-<ul>
-	<% @todos.each do |todo| %>
+</p>
+<ul style="list-style:none;">
+	<% @todays_todos_inprogress.each do |todo| %>
 		<li><%= todo.text %></li>
 	<% end %>
 </ul>
+<% else %>
+<p>
+You have nothing to do today. <a href="http://<%= Rails.application.config.action_mailer.default_url_options[:host] %>/">Add some tasks</a>
+</p>
+<% end %>
+<% unless @yesterdays_todos_inprogress.empty? %>
+<p>
+	Yesterday you were supposed to do
+</p>
+<ul style="list-style:none;">
+	<% @yesterdays_todos_inprogress.each do |todo| %>
+		<li><%= todo.text %></li>
+	<% end %>
+</ul>
+<% end %>
