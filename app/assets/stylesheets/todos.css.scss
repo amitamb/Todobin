@@ -5,6 +5,10 @@ body {
 	
 }
 
+a {
+	outline:none;
+}
+
 .relative {
 	position:relative;width:100%;height:100%;padding:0;margin:0;
 }
@@ -44,7 +48,7 @@ body {
 }
 
 #timeline .todo_list .todos_box {
-	padding:10px;border:1px solid #999;width:182px;
+	padding:10px 15px;border:1px solid #999;
 	font-size:15px;
 }
 
@@ -63,7 +67,7 @@ body {
 }
 
 #timeline form #todo_text {
-	width:180px;
+	width:200px;
 	border:0;
 	margin:0;
 	padding:0;
@@ -93,7 +97,7 @@ body {
 }
 
 #timeline .todos_box ul li.todo {
-	width:180px;
+	width:200px;
 	padding:0;
 	margin:0;
 	border:0;
@@ -112,7 +116,7 @@ body {
 }
 
 #timeline .todos_box .todo .todo_text {
-	width:165px; /* width:182px; */
+	width:185px; /* width:182px; */
 	display:inline-block;
 	white-space:nowrap;
 	overflow:hidden;
@@ -131,6 +135,14 @@ body {
 #timeline .todos_box .todo a {
 	opacity:0.7;
 }
+
 #timeline .todos_box .todo a:hover {
 	opacity:1;
 }
+
+@-moz-document url-prefix() {
+	#timeline .todos_box .todo a:hover  {
+		padding-right:2px;
+	}
+}
+

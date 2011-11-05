@@ -15,7 +15,6 @@
 }
 */
 
-
 $(function(){
 	// I don't like it here but still
 	
@@ -41,6 +40,10 @@ $(function(){
 		if ( $(this).val() && $form.attr("submitted") != "true" ){
 			$form.first().submit();
 		}
+	});
+	
+	$("form.new_todo #todo_text").live("focusout", function(){
+		
 	});
 
 	$(".todo .complete").live("click", function(){
