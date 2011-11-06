@@ -13,7 +13,7 @@ class TodoMailer < ActionMailer::Base
 
 		puts "Sending email to " + user.email
 		
-		@subject = @todays_todos_inprogress.empty? ? "Todobin Daily todo list" : "Todobin - #{ @todays_todos_inprogress[0].text }" + ( @todays_todos_inprogress.length > 1 ? " and #{ pluralize(@todays_todos_inprogress.length, "things").sub(" ", " more ") } to do today" : "" )
+		@subject = @todays_todos_inprogress.empty? ? "Use Todobin" : "Todobin - #{ @todays_todos_inprogress[0].text }" + ( @todays_todos_inprogress.length > 1 ? " and #{ pluralize(@todays_todos_inprogress.length, "things").sub(" ", " more ") } to do today" : "" )
 		
     mail(:to => "#{ user.email } <#{ user.email }>", :subject => @subject)
   end
