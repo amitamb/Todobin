@@ -108,6 +108,13 @@ a {
 	font-size:15px;
 }
 
+/* target IE8 only */
+#timeline .todos_box ul li.todo {
+	padding-top:6px\9;
+	padding-bottom:1px\9;
+}
+
+/* target firefox only */
 @-moz-document url-prefix() {
 	#timeline .todos_box ul li.todo {
 		padding-top:6px;
