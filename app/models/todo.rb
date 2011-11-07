@@ -19,9 +19,9 @@ class Todo < ActiveRecord::Base
 	end
 	
 	def self.date_range(start_date, end_date)
-		where( :scheduled_day => (start_date.to_date..end_date.to_date) )
+		where( " scheduled_day >= ? AND scheduled_day < ?", start_date.to_date, end_date.to_date )
 	end
-	
+
 	def self.day_range(past_days, future_days, local_time)
 		date_range(local_time+past_days.days, local_time+future_days.days)
 	end
