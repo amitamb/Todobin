@@ -3,4 +3,4 @@
 setTimeout(function(){
 	$("#todo_<%= @todo.id %>").replaceWith($("<%= escape_javascript(render(@todo)) %>"));
 	//style({ "text-decoration" : "line-through" });
-}, 400);
+}, 50);
