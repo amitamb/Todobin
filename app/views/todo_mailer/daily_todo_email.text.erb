@@ -1,1 +1,16 @@
-This is daily todo email in text.
+<% unless @todays_todos_inprogress.empty? %>
+Today you need to do
+<% @todays_todos_inprogress.each do |todo| %>
+  <%= todo.text %>
+<% end %>
+<% else %>
+You have nothing to do today.
+<% end %>
+
+<% unless @yesterdays_todos_inprogress.empty? %>
+Yesterday you were supposed to do
+<% @yesterdays_todos_inprogress.each do |todo| %>
+	<%= todo.text %>
+<% end %>
+<% end %>
+Go to Todobin http://<%= Rails.application.config.action_mailer.default_url_options[:host] %>/
